@@ -1,11 +1,4 @@
 <div id="top"></div>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
 <br />
 <div align="center">
 
@@ -132,25 +125,3 @@ simply open an issue with the tag "enhancement".
 Distributed under the Apache License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-
-[contributors-url]: https://github.com/Tosan/tosan-tostring-builder/graphs/contributors
-
-[forks-shield]: https://img.shields.io/github/forks//Best-README-Template.svg?style=for-the-badge
-
-[forks-url]: https://github.com/Tosan/tosan-tostring-builder/network/members
-
-[stars-shield]: https://img.shields.io/github/stars//Best-README-Template.svg?style=for-the-badge
-
-[stars-url]: https://github.com/Tosan/tosan-tostring-builder/stargazers
-
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-
-[issues-url]: https://github.com/Tosan/tosan-tostring-builder/issues
-
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-
-[license-url]: https://github.com/Tosan/tosan-tostring-builder/blob/master/LICENSE.txt
-
