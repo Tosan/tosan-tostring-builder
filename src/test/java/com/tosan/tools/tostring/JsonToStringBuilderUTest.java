@@ -14,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class JsonToStringBuilderUTest {
     private final ObjectMapper mapper = ToStringJsonUtil.getMapper();
 
+    public String normalizeNewLines(String value)
+    {
+        return value
+                .replace("\r\n", "\n")
+                .replace("\n", System.lineSeparator());
+    }
+
     @Test
     public void testFormatForStringList() throws JsonProcessingException {
         //given
@@ -31,7 +38,7 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -51,7 +58,7 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -77,7 +84,7 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -94,7 +101,7 @@ public class JsonToStringBuilderUTest {
                 "  \"intArray\" : \"[1, 2, 3]\"\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -121,7 +128,7 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -175,7 +182,7 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -192,7 +199,7 @@ public class JsonToStringBuilderUTest {
                 "  \"stringArray\" : \"[a, b, c]\"\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -216,7 +223,7 @@ public class JsonToStringBuilderUTest {
                         "}";
 
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -242,7 +249,7 @@ public class JsonToStringBuilderUTest {
                 "}]\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -264,7 +271,7 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -288,7 +295,7 @@ public class JsonToStringBuilderUTest {
                 "}\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 
     @Test
@@ -301,7 +308,7 @@ public class JsonToStringBuilderUTest {
         toStringBuilder.append("map", map);
         //then
         String expected = "{ }";
-        assertEquals(expected, toStringBuilder.toString());
+        assertEquals(normalizeNewLines(expected), toStringBuilder.toString());
     }
 
     @Test
@@ -317,7 +324,7 @@ public class JsonToStringBuilderUTest {
                 "  \"j\" : \"2\"\r\n" +
                 "}";
         mapper.readTree(s);
-        assertEquals(expected, s);
+        assertEquals(normalizeNewLines(expected), s);
     }
 
     @Test
@@ -338,6 +345,6 @@ public class JsonToStringBuilderUTest {
                 "  }\r\n" +
                 "}";
         mapper.readTree(toString);
-        assertEquals(expected, toString);
+        assertEquals(normalizeNewLines(expected), toString);
     }
 }
