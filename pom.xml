@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tosan.tools</groupId>
     <artifactId>tosan-tostring-builder</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+
+    <name>tosan-tostring-builder</name>
+    <description>Library provides interface for use in toString method and determine each field how should be
+        shown. also, you can choose from two implementations provided for simple and json formatting.
+        also, provides interface for use in aspect to log service call.
+    </description>
+    <url>https://github.com/Tosan/tosan-tostring-builder</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Mostafa Abdollahi</name>
+            <email>abdollahi@tosan.com</email>
+            <organization>tosan</organization>
+            <organizationUrl>http://www.tosan.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>Reza Mortezaei</name>
+            <email>mortezaei@tosan.com</email>
+            <organization>tosan</organization>
+            <organizationUrl>http://www.tosan.com</organizationUrl>
+        </developer>
+    </developers>
+
     <scm>
-        <connection>scm:git:https://github.com/Tosan/tosan-tostring-builder.git</connection>
-        <developerConnection>scm:git:https://github.com/Tosan/tosan-tostring-builder.git</developerConnection>
-        <tag>HEAD</tag>
+        <connection>scm:git:git://github.com/Tosan/tosan-tostring-builder.git</connection>
+        <developerConnection>scm:git:ssh://github.com/Tosan/tosan-tostring-builder.git</developerConnection>
+        <url>https://github.com/Tosan/tosan-tostring-builder/master</url>
     </scm>
 
     <properties>
@@ -67,6 +98,19 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.2.0</version>
                     <executions>
@@ -77,21 +121,17 @@
                             </goals>
                         </execution>
                     </executions>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <detectJavaApiLink>false</detectJavaApiLink>
-                        <doclint>none</doclint>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.2.1</version>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.5</version>
                     <executions>
                         <execution>
-                            <id>attach-sources</id>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
                             <goals>
-                                <goal>jar</goal>
+                                <goal>sign</goal>
                             </goals>
                         </execution>
                     </executions>
