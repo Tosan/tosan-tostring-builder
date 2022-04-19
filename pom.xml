@@ -38,8 +38,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/Tosan/tosan-tostring-builder.git</connection>
-        <developerConnection>scm:git:ssh://github.com/Tosan/tosan-tostring-builder.git</developerConnection>
+        <connection>scm:git:https://github.com/Tosan/tosan-tostring-builder.git</connection>
+        <developerConnection>scm:git:https://github.com/Tosan/tosan-tostring-builder.git</developerConnection>
         <url>https://github.com/Tosan/tosan-tostring-builder/master</url>
     </scm>
 
