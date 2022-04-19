@@ -4,7 +4,7 @@
 
     <groupId>com.tosan.tools</groupId>
     <artifactId>tosan-tostring-builder</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
 
 
     <name>tosan-tostring-builder</name>
@@ -40,7 +40,7 @@
         <connection>scm:git:https://github.com/Tosan/tosan-tostring-builder.git</connection>
         <developerConnection>scm:git:https://github.com/Tosan/tosan-tostring-builder.git</developerConnection>
         <url>https://github.com/Tosan/tosan-tostring-builder/master</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.1</tag>
     </scm>
 
     <properties>
