@@ -44,6 +44,37 @@ public class JsonServiceLoggerTest {
     }
 
     @Test
+    public void requestLogForMap() throws JsonProcessingException {
+        BranchFilterDto filter = new BranchFilterDto();
+        filter.setName("center");
+        filter.setCurrency(Currency.getInstance("IRR"));
+        filter.setLength(10);
+
+        Map<String, Object> object = new LinkedHashMap<>(3);
+        object.put("first", "1");
+        object.put("second", "test");
+        object.put("third", filter);
+
+        String log = serviceLogger.getRequestLog("getBranchList", new Object[]{filter, new BigDecimal("100"), "test", object});
+        logger.info(log);
+        mapper.readTree(log);
+    }
+
+    @Test
+    public void requestLogForList() throws JsonProcessingException {
+        BranchFilterDto filter = new BranchFilterDto();
+        filter.setName("center");
+        filter.setCurrency(Currency.getInstance("IRR"));
+        filter.setLength(10);
+
+        List<Object> objList = Arrays.asList(new TestObj(1), "one", "two");
+
+        String log = serviceLogger.getRequestLog("getBranchList", new Object[]{filter, new BigDecimal("100"), "test", objList});
+        logger.info(log);
+        mapper.readTree(log);
+    }
+
+    @Test
     public void responseLog() throws JsonProcessingException {
         BranchDto branch1 = new BranchDto();
         branch1.setCityName("tehran");

@@ -3,6 +3,7 @@ package com.tosan.tools.logger;
 import com.fasterxml.jackson.databind.util.RawValue;
 import com.tosan.tools.util.ToStringJsonUtil;
 
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -37,10 +38,7 @@ public class JsonServiceLogger extends ServiceLogger {
             Map<String, Object> objectsMap = new LinkedHashMap<>(objects.length);
             for (Object obj : objects) {
                 if (obj != null) {
-                    if (obj instanceof String)
-                        objectsMap.put(obj.getClass().getSimpleName(), obj);
-                    else
-                        objectsMap.put(obj.getClass().getSimpleName(), new RawValue(obj.toString()));
+                    objectsMap.put(obj.getClass().getSimpleName(), obj);
                 }
             }
             object.put(key, objectsMap);
