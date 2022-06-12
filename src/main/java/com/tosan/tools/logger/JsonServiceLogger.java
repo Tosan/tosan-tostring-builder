@@ -1,10 +1,10 @@
 package com.tosan.tools.logger;
 
-import com.fasterxml.jackson.databind.util.RawValue;
 import com.tosan.tools.util.ToStringJsonUtil;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,7 +25,20 @@ public class JsonServiceLogger extends ServiceLogger {
 
     @Override
     public String getExceptionLog(String serviceName, Throwable ex, Double duration) {
-        return createJson(serviceName, "exception", new Object[]{ex}, duration);
+        Map<String, Object> exception = new LinkedHashMap<>();
+        exception.put("name", ex.getClass().getSimpleName());
+        exception.put("message", ex.getMessage());
+        exception.put("localizedMessage", ex.getLocalizedMessage());
+        exception.put("stackTrace", getStackTrace(ex));
+        return createJson(serviceName, "exception", new Object[]{exception}, duration);
+    }
+
+    private List<String> getStackTrace(Throwable ex) {
+        List<String> stackTrace = new ArrayList<>();
+        for (StackTraceElement element : ex.getStackTrace()) {
+            stackTrace.add(element.toString());
+        }
+        return stackTrace;
     }
 
     private String createJson(String serviceName, String key, Object[] objects, Double duration) {
