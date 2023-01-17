@@ -96,7 +96,7 @@ public class JsonServiceLoggerTest {
 
     @Test
     public void exceptionLog() throws JsonProcessingException {
-        InvalidDepositException ex = new InvalidDepositException("deposit not found", new RuntimeException(), "1234");
+        InvalidDepositException ex = new InvalidDepositException("deposit not found", "1234");
         double duration = 222 / 1000.0;
 
         String log = serviceLogger.getExceptionLog("getBranchList", ex, duration) + "\n";

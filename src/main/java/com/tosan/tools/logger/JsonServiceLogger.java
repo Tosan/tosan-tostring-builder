@@ -39,6 +39,9 @@ public class JsonServiceLogger extends ServiceLogger {
         List<String> stackTrace = new ArrayList<>();
         for (StackTraceElement element : ex.getStackTrace()) {
             stackTrace.add(element.toString());
+            if (stackTrace.size() > 15) {
+                break;
+            }
         }
         return stackTrace;
     }
