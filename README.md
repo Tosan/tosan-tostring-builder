@@ -44,7 +44,7 @@ simple and json formatting. also, provides interface for use in aspect to log se
 For start, you should add the following dependency to your pom:
 
  ```xml
-  <groupId>com.tosan.tools</groupId>
+<groupId>com.tosan.tools</groupId>
 <artifactId>tosan-tostring-builder</artifactId>
 <version>${version}</version>
   ```
@@ -52,16 +52,16 @@ For start, you should add the following dependency to your pom:
 for use in toString method you can code like this:
 
 ```java
-   @Override
+@Override
 public String toString() {
 final ToStringBuilder sb = new ToStringBuilderImpl(this);
         sb.append("superClass", super.toString());
-        sb.semiEncryptedAppend("code", sMaskedCode);
         sb.append("name", name);
+        sb.semiEncryptedAppend("code", code);
         sb.encryptedAppend("password", address);
-        sb.append("tel", tel);
-        sb.append("cityName", cityName);
-        sb.leftEncryptedAppend("cityCode", LMaskedCityCode);
+        sb.middleEncryptedAppend("mobile", mobile);
+        sb.rightEncryptedAppend("address", address);
+        sb.leftEncryptedAppend("cityCode", cityCode);
         return sb.toString();
         }
   ```
