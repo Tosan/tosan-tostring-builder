@@ -105,14 +105,31 @@ public class EncryptStringUtil {
         if (obj != null) {
             str = objToString(obj);
             if (str.length() == 16) {
-                str = SEMI_ENCRYPTED.concat(str.substring(0, 6)).concat("******").concat(str.substring(12, 16));
+                str = str.substring(0, 6).concat("******").concat(str.substring(12, 16));
             } else if (str.length() == 19) {
-                str = SEMI_ENCRYPTED.concat(str.substring(0, 6)).concat("*********").concat(str.substring(15, 19));
-            } else if (str.length() >= 2) {
-                str = SEMI_ENCRYPTED.concat(str.substring(0, str.length() / 2));
+                str = str.substring(0, 6).concat("*********").concat(str.substring(15, 19));
             } else {
-                str = ENCRYPTED;
+                str = middleEncrypt(str);
             }
+        }
+        return str;
+    }
+
+    public static String middleEncrypt(Object obj) {
+        String str;
+        try {
+            str = objToString(obj);
+            if (str == null || str.isEmpty()) {
+                return str;
+            } else if (str.length() <= 3) {
+                return ENCRYPTED;
+            } else {
+                int partLength = str.length() / 3;
+                return str.substring(0, partLength) + generateStar(str.length() - partLength * 2) +
+                        str.substring(str.length() - partLength);
+            }
+        } catch (Exception e) {
+            str = ERROR_TEXT;
         }
         return str;
     }
@@ -128,5 +145,13 @@ public class EncryptStringUtil {
             }
         }
         return null;
+    }
+
+    private static String generateStar(int length) {
+        StringBuilder stars = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            stars.append("*");
+        }
+        return stars.toString();
     }
 }

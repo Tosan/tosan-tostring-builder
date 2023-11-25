@@ -80,6 +80,11 @@ public class ToStringBuilderImpl implements ToStringBuilder {
     }
 
     @Override
+    public ToStringBuilder middleEncryptedAppend(String key, Object obj) {
+        return builder.middleEncryptedAppend(key, obj);
+    }
+
+    @Override
     public String toString() {
         return builder.toString();
     }
