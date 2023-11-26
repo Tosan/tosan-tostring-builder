@@ -10,7 +10,7 @@ package com.tosan.tools.tostring;
 public interface ToStringBuilder {
 
     /**
-     * @param name field name
+     * @param name  field name
      * @param value field value
      */
     ToStringBuilder append(String name, Object value);
@@ -47,4 +47,9 @@ public interface ToStringBuilder {
      * it will mask maskLength chars from right part of value.
      */
     ToStringBuilder semiEncryptedAppend(String name, Object value, int maskLength);
+
+    /**
+     * this method will mask middle part of any vale.
+     */
+    ToStringBuilder middleEncryptedAppend(String name, Object value);
 }

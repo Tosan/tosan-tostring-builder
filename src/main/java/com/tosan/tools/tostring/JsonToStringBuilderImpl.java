@@ -9,7 +9,7 @@ import com.tosan.tools.util.ToStringJsonUtil;
 
 import java.util.*;
 
-import static com.tosan.tools.util.ToStringConstant.*;
+import static com.tosan.tools.util.ToStringConstant.ERROR_TEXT;
 
 /**
  * This implementation provides json format for tostring
@@ -87,7 +87,7 @@ public class JsonToStringBuilderImpl extends AbstractToStringBuilder {
             } else if (obj instanceof Map) {
                 Map map = (Map) obj;
                 this.text.put(key, map);
-            } else  {
+            } else {
                 if (obj.toString().startsWith("{"))
                     this.text.put(key, new RawValue(obj.toString()));
                 else
@@ -144,6 +144,12 @@ public class JsonToStringBuilderImpl extends AbstractToStringBuilder {
     @Override
     public ToStringBuilder semiEncryptedAppend(String key, Object obj, int maskLength) {
         this.text.put(key, EncryptStringUtil.semiEncrypt(obj, maskLength));
+        return this;
+    }
+
+    @Override
+    public ToStringBuilder middleEncryptedAppend(String key, Object obj) {
+        this.text.put(key, EncryptStringUtil.middleEncrypt(obj));
         return this;
     }
 
