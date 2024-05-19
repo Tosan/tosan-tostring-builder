@@ -26,6 +26,11 @@ public interface ToStringBuilder {
     ToStringBuilder rightEncryptedAppend(String name, Object value);
 
     /**
+     * calling this method leads to showing mobile number and only shows begin and end of mobile number value
+     */
+    ToStringBuilder mobileEncryptedAppend(String name,Object value);
+
+    /**
      * this method will remove value
      * use this for fields such as account balance and password
      */

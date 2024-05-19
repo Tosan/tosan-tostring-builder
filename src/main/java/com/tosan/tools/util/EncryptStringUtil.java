@@ -115,6 +115,24 @@ public class EncryptStringUtil {
         return str;
     }
 
+    public static String mobileEncrypt(Object obj) {
+        String str;
+        try {
+            str = objToString(obj);
+            if (str == null || str.isEmpty()) {
+                return str;
+            } else if (str.length() < 7) {
+                return ENCRYPTED;
+            } else {
+                return str.substring(0, str.length() - 7) + "***" +
+                        str.substring(str.length() - 4);
+            }
+        } catch (Exception e) {
+            str = ERROR_TEXT;
+        }
+        return str;
+    }
+
     public static String middleEncrypt(Object obj) {
         String str;
         try {

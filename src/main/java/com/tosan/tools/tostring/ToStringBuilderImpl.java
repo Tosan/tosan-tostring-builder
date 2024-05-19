@@ -60,6 +60,11 @@ public class ToStringBuilderImpl implements ToStringBuilder {
     }
 
     @Override
+    public ToStringBuilder mobileEncryptedAppend(String key, Object obj) {
+        return builder.mobileEncryptedAppend(key, obj);
+    }
+
+    @Override
     public ToStringBuilder encryptedAppend(String key, Object obj) {
         return builder.encryptedAppend(key, obj);
     }
