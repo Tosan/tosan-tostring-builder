@@ -124,6 +124,12 @@ public class JsonToStringBuilderImpl extends AbstractToStringBuilder {
     }
 
     @Override
+    public ToStringBuilder mobileEncryptedAppend(String key, Object obj) {
+        this.text.put(key, EncryptStringUtil.mobileEncrypt(obj));
+        return this;
+    }
+
+    @Override
     public final ToStringBuilder encryptedAppend(String key, Object obj) {
         this.text.put(key, EncryptStringUtil.encrypt(obj));
         return this;

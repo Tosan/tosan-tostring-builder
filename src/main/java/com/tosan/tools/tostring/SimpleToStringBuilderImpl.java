@@ -207,6 +207,21 @@ public class SimpleToStringBuilderImpl extends AbstractToStringBuilder {
     }
 
     @Override
+    public ToStringBuilder mobileEncryptedAppend(String key, Object obj) {
+        this.text.append(SPACE);
+        this.text.append(key);
+        this.text.append(EQUAL);
+        if (obj != null) {
+            this.text.append(EncryptStringUtil.mobileEncrypt(obj));
+            this.text.append(ENTER);
+        } else {
+            this.text.append(NULL_TEXT);
+        }
+        this.text.append(ENTER);
+        return this;
+    }
+
+    @Override
     public ToStringBuilder semiEncryptedAppend(String key, Object obj) {
         return semiEncryptedAppend(key, obj, 5);
     }
